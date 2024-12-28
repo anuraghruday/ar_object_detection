@@ -1,3 +1,4 @@
+
 # AR Object Detection with DETR
 
 !\[Project Banner\](https://github.com/yourusername/nyu-depth-detr/blob/main/banner.png)
@@ -25,27 +26,27 @@ This repository presents an end-to-end pipeline for semantic segmentation using 
 
 ## Features
 
-- \*\*Data Handling\*\*: Efficient loading and preprocessing of the NYU Depth V2 \`.mat\` dataset.  
-- \*\*Model Integration\*\*: Modification of ResNet-50 backbone to incorporate depth information for DETR.  
-- \*\*Custom Dataset \& DataLoader\*\*: Tailored PyTorch \`Dataset\` and \`DataLoader\` for seamless data feeding.  
-- \*\*Data Augmentation\*\*: Implements random horizontal flipping to enhance model generalization.  
-- \*\*Training Pipeline\*\*: Comprehensive training loop with loss aggregation, optimizer setup, and learning rate scheduling.  
-- \*\*Evaluation Metrics\*\*: Custom accuracy and Intersection over Union (IoU) computations to assess model performance.  
-- \*\*Visualization\*\*: Tools to overlay segmentation labels on RGB images for qualitative analysis.  
-- \*\*Scalability\*\*: Designed to handle large datasets efficiently with support for multi-worker data loading.
+- **Data Handling**: Efficient loading and preprocessing of the NYU Depth V2 `.mat` dataset.  
+- **Model Integration**: Modification of ResNet-50 backbone to incorporate depth information for DETR.  
+- **Custom Dataset \& DataLoader**: Tailored PyTorch `Dataset` and `DataLoader` for seamless data feeding.  
+- **Data Augmentation**: Implements random horizontal flipping to enhance model generalization.  
+- **Training Pipeline**: Comprehensive training loop with loss aggregation, optimizer setup, and learning rate scheduling.  
+- **Evaluation Metrics**: Custom accuracy and Intersection over Union (IoU) computations to assess model performance.  
+- **Visualization**: Tools to overlay segmentation labels on RGB images for qualitative analysis.  
+- **Scalability**: Designed to handle large datasets efficiently with support for multi-worker data loading.
 
 ## Dataset
 
-*\*NYU Depth V2\*\* is a large-scale dataset for depth prediction and scene understanding, containing RGB-D images captured in indoor environments.
+**NYU Depth V2** is a large-scale dataset for depth prediction and scene understanding, containing RGB-D images captured in indoor environments.
 
-- \*\*Total Classes\*\*: 894  
-- \*\*Data Components\*\*:
+- **Total Classes**: 894  
+- **Data Components**:
   - RGB Images  
   - Depth Maps  
   - Semantic Labels  
   - Class Names
 
-*\*Note\*\*: Ensure you have the \`nyu_depth_v2_labeled.mat\` file placed in the designated directory before proceeding.
+**Note**: Ensure you have the `nyu_depth_v2_labeled.mat` file placed in the designated directory before proceeding.
 
 ## Installation
 
@@ -72,12 +73,12 @@ source venv/bin/activate  \# On Windows: venv\Scripts\activate
 
 ### Install Dependencies
 
-\`\`\`bash
+```bash
 pip install -r requirements.txt
-\`\`\`
+```
 
-\*\*\`requirements.txt\`\*\*:
-\`\`\`plaintext
+**`requirements.txt`**:
+```plaintext
 h5py==3.8.0
 numpy==1.23.5
 matplotlib==3.6.2
@@ -85,79 +86,79 @@ opencv-python==4.7.0.72
 torch==2.0.0
 torchvision==0.15.1
 tqdm==4.65.0
-\`\`\`
+```
 
-\*\*\*Note\*\*\*: For GPU support, ensure you install the appropriate versions of \`torch\` and \`torchvision\` as per \[PyTorch's official installation guide\](https://pytorch.org/get-started/locally/).
+***Note***: For GPU support, ensure you install the appropriate versions of `torch` and `torchvision` as per [PyTorch's official installation guide](https://pytorch.org/get-started/locally/).
 
-\## Usage
+## Usage
 
-\### Data Preparation
+### Data Preparation
 
-1. \*\*Download the NYU Depth V2 Dataset\*\*:
-   \- Ensure you have the \`nyu_depth_v2_labeled.mat\` file. If not, download it from the \[official source\](https://cs.nyu.edu/~silberman/datasets/nyu_depth_v2.html).
+1. **Download the NYU Depth V2 Dataset**:
+   - Ensure you have the `nyu_depth_v2_labeled.mat` file. If not, download it from the [official source](https://cs.nyu.edu/~silberman/datasets/nyu_depth_v2.html).
 
-2. \*\*Place the Dataset\*\*:
-   \- Move the \`.mat\` file to the project directory or specify the correct path in the script.
+2. **Place the Dataset**:
+   - Move the `.mat` file to the project directory or specify the correct path in the script.
 
-\### Training
+### Training
 
 Execute the training script to start the training process.
 
-\`\`\`bash
+```bash
 python main.py --mode train --data_path path/to/nyu_depth_v2_labeled.mat --epochs 60 --batch_size 4
-\`\`\`
+```
 
-\*\*Arguments\*\*:
-\- \`--mode\`: Operation mode (\`train\`, \`evaluate\`, \`test\`)  
-\- \`--data_path\`: Path to the \`.mat\` dataset file  
-\- \`--epochs\`: Number of training epochs  
-\- \`--batch_size\`: Batch size for training
+**Arguments**:
+- `--mode`: Operation mode (`train`, `evaluate`, `test`)  
+- `--data_path`: Path to the `.mat` dataset file  
+- `--epochs`: Number of training epochs  
+- `--batch_size`: Batch size for training
 
-\*\*Example\*\*:
+**Example**:
 
-\`\`\`bash
+```bash
 python main.py --mode train --data_path ./data/nyu_depth_v2_labeled.mat --epochs 60 --batch_size 4
-\`\`\`
+```
 
-\### Evaluation
+### Evaluation
 
 After training, evaluate the model on the validation or test set.
 
-\`\`\`bash
+```bash
 python main.py --mode evaluate --data_path path/to/nyu_depth_v2_labeled.mat --checkpoint path/to/checkpoint.pth
-\`\`\`
+```
 
-\*\*Arguments\*\*:
-\- \`--mode\`: \`evaluate\` or \`test\`  
-\- \`--data_path\`: Path to the \`.mat\` dataset file  
-\- \`--checkpoint\`: Path to the trained model checkpoint
+**Arguments**:
+- `--mode`: `evaluate` or `test`  
+- `--data_path`: Path to the `.mat` dataset file  
+- `--checkpoint`: Path to the trained model checkpoint
 
-\### Testing
+### Testing
 
 To test the model and visualize results:
 
-\`\`\`bash
+```bash
 python main.py --mode test --data_path path/to/nyu_depth_v2_labeled.mat --checkpoint path/to/checkpoint.pth
-\`\`\`
+```
 
-\*\*Visualization\*\*:
+**Visualization**:
 
 The script includes functions to overlay segmentation labels on RGB images, allowing for qualitative assessment of model performance.
 
-\## Model Architecture
+## Model Architecture
 
-\### Detection Transformer (DETR) with Depth Integration
+### Detection Transformer (DETR) with Depth Integration
 
-\- \*\*Backbone\*\*: Modified ResNet-50 to accept 4-channel input (RGB + Depth).  
-\- \*\*Transformer\*\*: Standard DETR transformer with 6 encoder and 6 decoder layers.  
-\- \*\*Head\*\*: Classification and bounding box regression heads adapted for semantic segmentation.  
-\- \*\*Matcher\*\*: Hungarian Matcher for optimal bipartite matching between predictions and ground truth.
+- **Backbone**: Modified ResNet-50 to accept 4-channel input (RGB + Depth).  
+- **Transformer**: Standard DETR transformer with 6 encoder and 6 decoder layers.  
+- **Head**: Classification and bounding box regression heads adapted for semantic segmentation.  
+- **Matcher**: Hungarian Matcher for optimal bipartite matching between predictions and ground truth.
 
-\### Modifying ResNet-50 for Depth
+### Modifying ResNet-50 for Depth
 
 The first convolutional layer of ResNet-50 is altered to accept an additional depth channel. The weights for the fourth channel are initialized as the mean of the existing RGB channels to integrate depth information effectively.
 
-\`\`\`python
+```python
 def modify_resnet_for_4_channels():
     model = resnet50(weights=ResNet50_Weights.IMAGENET1K_V1)
     old_conv = model.conv1
@@ -172,48 +173,50 @@ def modify_resnet_for_4_channels():
         new_conv.bias.data = old_conv.bias.data
     model.conv1 = new_conv
     return model
-\`\`\`
+```
 
-\## Results
+## Results
 
 After training for 60 epochs, the model achieves the following performance metrics:
 
-\- \*\*Training Loss\*\*: \*[Specify final training loss]\*  
-\- \*\*Validation Loss\*\*: \*[Specify final validation loss]\*  
-\- \*\*Accuracy\*\*: \*[Specify accuracy metrics]\*
+- **Training Loss**: *[Specify final training loss]*  
+- **Validation Loss**: *[Specify final validation loss]*  
+- **Accuracy**: *[Specify accuracy metrics]*
 
-\### Loss Curves
+### Loss Curves
 
-\!\[Loss Curves\](https://github.com/yourusername/nyu-depth-detr/blob/main/loss_curves.png)
+![Loss Curves\](https://github.com/yourusername/nyu-depth-detr/blob/main/loss_curves.png)
 
-\### Sample Predictions
+### Sample Predictions
 
-\!\[Sample Prediction\](https://github.com/yourusername/nyu-depth-detr/blob/main/sample_prediction.png)
+![Sample Prediction\](https://github.com/yourusername/nyu-depth-detr/blob/main/sample_prediction.png)
 
-\## Contributing
+## Contributing
 
 Contributions are welcome! Please follow these steps:
 
 1. Fork the repository.  
-2. Create a new branch (\`git checkout -b feature/YourFeature\`).  
-3. Commit your changes (\`git commit -m 'Add some feature'\`).  
-4. Push to the branch (\`git push origin feature/YourFeature\`).  
+2. Create a new branch (`git checkout -b feature/YourFeature`).  
+3. Commit your changes (`git commit -m 'Add some feature'`).  
+4. Push to the branch (`git push origin feature/YourFeature`).  
 5. Open a Pull Request.
 
 For major changes, please open an issue first to discuss what you would like to change.
 
-\## License
+## License
 
-This project is licensed under the \[MIT License\](LICENSE).
+This project is licensed under the [MIT License\](LICENSE).
 
-\## Acknowledgements
+## Acknowledgements
 
-\- \[DETR: End-to-End Object Detection with Transformers\](https://github.com/facebookresearch/detr)  
-\- \[NYU Depth V2 Dataset\](https://cs.nyu.edu/~silberman/datasets/nyu_depth_v2.html)  
-\- \[PyTorch\](https://pytorch.org/)  
-\- \[OpenCV\](https://opencv.org/)  
-\- \[Matplotlib\](https://matplotlib.org/)
+- [DETR: End-to-End Object Detection with Transformers\](https://github.com/facebookresearch/detr)  
+- [NYU Depth V2 Dataset\](https://cs.nyu.edu/~silberman/datasets/nyu_depth_v2.html)  
+- [PyTorch\](https://pytorch.org/)  
+- [OpenCV\](https://opencv.org/)  
+- [Matplotlib\](https://matplotlib.org/)
 
 ---
 
-\*Feel free to reach out via \[email@example.com\](mailto:email@example.com) for any questions or collaborations.\*
+*Feel free to reach out via [anurag.hruday@gmail.com](mailto:anurag.hruday@gmail.com) for any questions or collaborations.*
+
+
