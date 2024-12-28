@@ -1,76 +1,76 @@
-\# AR Object Detection with DETR
+# AR Object Detection with DETR
 
-\!\[Project Banner\](https://github.com/yourusername/nyu-depth-detr/blob/main/banner.png)
+!\[Project Banner\](https://github.com/yourusername/nyu-depth-detr/blob/main/banner.png)
 
-\## Table of Contents
-\- [Overview](#overview)
-\- [Features](#features)
-\- [Dataset](#dataset)
-\- [Installation](#installation)
-\- [Usage](#usage)
-  \- [Data Preparation](#data-preparation)
-  \- [Training](#training)
-  \- [Evaluation](#evaluation)
-\- [Model Architecture](#model-architecture)
-\- [Results](#results)
-\- [Contributing](#contributing)
-\- [License](#license)
-\- [Acknowledgements](#acknowledgements)
+## Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Dataset](#dataset)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Data Preparation](#data-preparation)
+  - [Training](#training)
+  - [Evaluation](#evaluation)
+- [Model Architecture](#model-architecture)
+- [Results](#results)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
 
-\## Overview
+## Overview
 
 This repository presents an end-to-end pipeline for semantic segmentation using the NYU Depth V2 dataset integrated with a Detection Transformer (DETR) model enhanced by depth information. The project leverages depth data to improve segmentation accuracy, offering a robust solution for depth-aware scene understanding.
 
-\!\[Sample Results\](https://github.com/yourusername/nyu-depth-detr/blob/main/sample_results.png)
+!\[Sample Results\](https://github.com/yourusername/nyu-depth-detr/blob/main/sample_results.png)
 
-\## Features
+## Features
 
-\- \*\*Data Handling\*\*: Efficient loading and preprocessing of the NYU Depth V2 \`.mat\` dataset.  
-\- \*\*Model Integration\*\*: Modification of ResNet-50 backbone to incorporate depth information for DETR.  
-\- \*\*Custom Dataset \& DataLoader\*\*: Tailored PyTorch \`Dataset\` and \`DataLoader\` for seamless data feeding.  
-\- \*\*Data Augmentation\*\*: Implements random horizontal flipping to enhance model generalization.  
-\- \*\*Training Pipeline\*\*: Comprehensive training loop with loss aggregation, optimizer setup, and learning rate scheduling.  
-\- \*\*Evaluation Metrics\*\*: Custom accuracy and Intersection over Union (IoU) computations to assess model performance.  
-\- \*\*Visualization\*\*: Tools to overlay segmentation labels on RGB images for qualitative analysis.  
-\- \*\*Scalability\*\*: Designed to handle large datasets efficiently with support for multi-worker data loading.
+- \*\*Data Handling\*\*: Efficient loading and preprocessing of the NYU Depth V2 \`.mat\` dataset.  
+- \*\*Model Integration\*\*: Modification of ResNet-50 backbone to incorporate depth information for DETR.  
+- \*\*Custom Dataset \& DataLoader\*\*: Tailored PyTorch \`Dataset\` and \`DataLoader\` for seamless data feeding.  
+- \*\*Data Augmentation\*\*: Implements random horizontal flipping to enhance model generalization.  
+- \*\*Training Pipeline\*\*: Comprehensive training loop with loss aggregation, optimizer setup, and learning rate scheduling.  
+- \*\*Evaluation Metrics\*\*: Custom accuracy and Intersection over Union (IoU) computations to assess model performance.  
+- \*\*Visualization\*\*: Tools to overlay segmentation labels on RGB images for qualitative analysis.  
+- \*\*Scalability\*\*: Designed to handle large datasets efficiently with support for multi-worker data loading.
 
-\## Dataset
+## Dataset
 
-\*\*NYU Depth V2\*\* is a large-scale dataset for depth prediction and scene understanding, containing RGB-D images captured in indoor environments.
+*\*NYU Depth V2\*\* is a large-scale dataset for depth prediction and scene understanding, containing RGB-D images captured in indoor environments.
 
-\- \*\*Total Classes\*\*: 894  
-\- \*\*Data Components\*\*:
-  \- RGB Images  
-  \- Depth Maps  
-  \- Semantic Labels  
-  \- Class Names
+- \*\*Total Classes\*\*: 894  
+- \*\*Data Components\*\*:
+  - RGB Images  
+  - Depth Maps  
+  - Semantic Labels  
+  - Class Names
 
-\*\*Note\*\*: Ensure you have the \`nyu_depth_v2_labeled.mat\` file placed in the designated directory before proceeding.
+*\*Note\*\*: Ensure you have the \`nyu_depth_v2_labeled.mat\` file placed in the designated directory before proceeding.
 
-\## Installation
+## Installation
 
-\### Prerequisites
+### Prerequisites
 
-\- Python 3.7 or higher  
-\- CUDA-enabled GPU (recommended for training)
+- Python 3.7 or higher  
+- CUDA-enabled GPU (recommended for training)
 
-\### Clone the Repository
+### Clone the Repository
 
-\`\`\`bash
+```bash
 git clone https://github.com/yourusername/nyu-depth-detr.git
 cd nyu-depth-detr
-\`\`\`
+```
 
-\### Create a Virtual Environment
+### Create a Virtual Environment
 
 It's recommended to use a virtual environment to manage dependencies.
 
-\`\`\`bash
+```bash
 python3 -m venv venv
 source venv/bin/activate  \# On Windows: venv\Scripts\activate
-\`\`\`
+```
 
-\### Install Dependencies
+### Install Dependencies
 
 \`\`\`bash
 pip install -r requirements.txt
