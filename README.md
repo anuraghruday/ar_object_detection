@@ -177,11 +177,11 @@ After training for 60 epochs, the model achieves the following
 
 ### Loss Curves
 
-![Loss Curves\](loss_plot.png)
+![Loss Curves](loss_plot.png)
 
 ### Sample Predictions
 
-![Sample Prediction\](output4.png)
+![Sample Prediction](output4.png)
 
 
 ## License
