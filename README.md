@@ -177,11 +177,11 @@ After training for 60 epochs, the model achieves the following
 
 ### Loss Curves
 
-![Loss Curves\](https://github.com/anuraghruday/ar_object_detection/blob/main/loss_plot.png)
+![Loss Curves\](loss_plot.png)
 
 ### Sample Predictions
 
-![Sample Prediction\](https://github.com/anuraghruday/ar_object_detection/blob/main/output4.png)
+![Sample Prediction\](output4.png)
 
 
 ## License
