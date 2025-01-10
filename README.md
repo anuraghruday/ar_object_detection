@@ -1,8 +1,6 @@
 
 # AR Object Detection with DETR
 
-!\[Project Banner\](https://github.com/yourusername/nyu-depth-detr/blob/main/banner.png)
-
 ## Table of Contents
 - [Overview](#overview)
 - [Features](#features)
@@ -21,8 +19,6 @@
 ## Overview
 
 This repository presents an end-to-end pipeline for semantic segmentation using the NYU Depth V2 dataset integrated with a Detection Transformer (DETR) model enhanced by depth information. The project leverages depth data to improve segmentation accuracy, offering a robust solution for depth-aware scene understanding.
-
-!\[Sample Results\](https://github.com/yourusername/nyu-depth-detr/blob/main/sample_results.png)
 
 ## Features
 
@@ -177,31 +173,16 @@ def modify_resnet_for_4_channels():
 
 ## Results
 
-After training for 60 epochs, the model achieves the following performance metrics:
-
-- **Training Loss**: *[Specify final training loss]*  
-- **Validation Loss**: *[Specify final validation loss]*  
-- **Accuracy**: *[Specify accuracy metrics]*
+After training for 60 epochs, the model achieves the following
 
 ### Loss Curves
 
-![Loss Curves\](https://github.com/yourusername/nyu-depth-detr/blob/main/loss_curves.png)
+![Loss Curves\](https://github.com/anuraghruday/ar_object_detection/blob/main/loss_plot.png)
 
 ### Sample Predictions
 
-![Sample Prediction\](https://github.com/yourusername/nyu-depth-detr/blob/main/sample_prediction.png)
+![Sample Prediction\](https://github.com/anuraghruday/ar_object_detection/blob/main/output4.png)
 
-## Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository.  
-2. Create a new branch (`git checkout -b feature/YourFeature`).  
-3. Commit your changes (`git commit -m 'Add some feature'`).  
-4. Push to the branch (`git push origin feature/YourFeature`).  
-5. Open a Pull Request.
-
-For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
 
